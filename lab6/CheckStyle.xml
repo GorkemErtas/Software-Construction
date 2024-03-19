@@ -1,0 +1,56 @@
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        <!-- "https://checkstyle.org/dtds/configuration_1_3.dtd"-->
+
+<module name="Checker">
+    <property name="severity" value="warning" />
+
+    <!-- Import the Google Java Style -->
+    <module name="TreeWalker">
+        <module name="com.puppycrawl.tools.checkstyle.checks.imports.ImportControlCheck">
+            <property name="file" value="google_checks.xml"/>
+        </module>
+    </module>
+
+    <!-- Naming conventions -->
+    <module name="TreeWalker">
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+            <property name="allowUnderscore" value="false"/>
+            <message key="name.invalidPattern" value="Class name must follow UpperCamelCase format."/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <property name="allowUnderscore" value="false"/>
+            <message key="name.invalidPattern" value="Method name must adhere to lowerCamelCase format."/>
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <property name="allowUnderscore" value="false"/>
+            <message key="name.invalidPattern" value="Variable name must adhere to lowerCamelCase format."/>
+        </module>
+        <module name="ConstantName">
+            <property name="format" value="^[A-Z][A-Z0-9_]*$"/>
+            <message key="name.invalidPattern" value="Constant name must be in UPPER CASE format."/>
+        </module>
+        <module name="AbstractClassName">
+            <property name="format" value="^.*Abstract$"/>
+            <message key="name.invalidPattern" value="Abstract class/interface name must end with 'Abstract'."/>
+        </module>
+    </module>
+
+    <!-- Abstraction Level -->
+    <module name="ClassDataAbstractionCoupling">
+        <property name="maximal" value="5"/>
+    </module>
+
+    <!-- Class Complexity -->
+    <module name="ClassFanOutComplexity">
+        <property name="max" value="10"/>
+    </module>
+
+    <!-- Method Count -->
+    <module name="MethodCount">
+        <property name="max" value="50"/>
+    </module>
+</module>
